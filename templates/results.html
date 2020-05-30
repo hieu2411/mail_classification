@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Movie Classification</title>
+    {#	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">#}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="row" style="margin: 20px">
+    <div class="col-md-8">
+        {% if data is not none %}
+            <div class="form-group">
+                <h1 for="exampleFormControlTextarea1">Your mail</h1>
+                    <textarea class="form-control" name="mail" disabled >{{ data.mail }}</textarea>
+            </div>
+            <h3>Prediction:</h3>
+            <div>This mail is <strong>{{ data.result_mail }}</strong>
+                (probability: {{ data.mail_proba }}%).
+            </div>
+        <br>
+        <br>
+
+            <div class="form-group">
+                <h1 for="exampleFormControlTextarea1">Your file content</h1>
+                <textarea class="form-control" name="mail" disabled>{{ data.file }}</textarea>
+            </div>
+
+            <h3>Prediction:</h3>
+            <div>This mail is <strong>{{ data.result_file }}</strong>
+                (probability: {{ data.file_proba }}%).
+            </div>
+        {% endif %}
+        <br>
+
+        <div id='button'>
+            <form action="/">
+                <button type="submit" class="btn btn-success">Submit another review</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
